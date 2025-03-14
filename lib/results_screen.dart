@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:quiz_app_flutter/data/questions.dart';
 import 'package:quiz_app_flutter/questions_summary.dart';
