@@ -10,6 +10,8 @@ It's amazing, follow him!
 ## Screenshots
 
 <img src="https://github.com/user-attachments/assets/a2e90637-112c-4766-869a-de1a7fbc5234" width="350px">
+<img src="https://github.com/user-attachments/assets/02f9ede4-e6e0-41fb-b208-38926ed15abd" width="350px">
+<img src="https://github.com/user-attachments/assets/04565886-4788-4050-baa7-2bb18e90aa2a" width="350px">
 
 ## Technologies Used
 
