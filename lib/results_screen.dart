@@ -3,9 +3,15 @@ import 'package:quiz_app_flutter/data/questions.dart';
 import 'package:quiz_app_flutter/questions_summary.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key, required this.chosenAnswers});
+  const ResultsScreen({
+    super.key,
+    required this.chosenAnswers,
+    required this.handleRestartQuiz,
+  });
 
   final List<String> chosenAnswers;
+
+  final Function() handleRestartQuiz;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -25,9 +31,10 @@ class ResultsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final summaryData = getSummaryData();
     final numTotalQuestions = questions.length;
-    final numCorrectQuestions = summaryData.where((data) {
-      return data['user_answer'] == data['correct_answer'];
-    }).length;
+    final numCorrectQuestions =
+        summaryData.where((data) {
+          return data['user_answer'] == data['correct_answer'];
+        }).length;
 
     return SizedBox(
       width: double.infinity,
@@ -36,11 +43,19 @@ class ResultsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('You answer $numCorrectQuestions out of $numTotalQuestions questions correctly!'),
+            Text(
+              'You answer $numCorrectQuestions out of $numTotalQuestions questions correctly!',
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
             const SizedBox(height: 30),
             QuestionsSummary(summaryData: summaryData),
             const SizedBox(height: 30),
-            TextButton(onPressed: () {}, child: Text('Restart Quiz!')),
+            IconButton(
+              onPressed: handleRestartQuiz,
+              icon: Icon(Icons.refresh),
+              color: Colors.white,
+              tooltip: "Restart quiz!",
+            ),
           ],
         ),
       ),
